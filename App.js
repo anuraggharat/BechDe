@@ -1,18 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, View } from "react-native";
+import WelcomeScreen from "./App/Screens/WelcomeScreen";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>Hello world</Text>
-      <Text>This is my try and I guess it works</Text>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <WelcomeScreen></WelcomeScreen>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
   },
 });

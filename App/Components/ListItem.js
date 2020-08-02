@@ -1,28 +1,44 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableHighlight,
+} from "react-native";
 import AppText from "./AppText";
 import colors from "../config/colors";
+import Swipeable from "react-native-gesture-handler/Swipeable";
 
-export default function ListItem() {
+export default function ListItem({
+  title,
+  subTitle,
+  image,
+  onPress,
+  renderRightActions,
+}) {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../assets/anurag.jpg")}
-        style={styles.displayPicture}
-      ></Image>
-
-      <View style={styles.details}>
-        <AppText style={styles.title}>Anurag Gharat</AppText>
-        <AppText style={styles.subTile}>13 Listings</AppText>
-      </View>
-    </View>
+    <Swipeable renderRightActions={renderRightActions}>
+      <TouchableHighlight
+        underlayColor={colors.primary}
+        onPress={() => alert("Pressed")}
+      >
+        <View style={styles.container}>
+          <Image source={image} style={styles.displayPicture}></Image>
+          <View style={styles.details}>
+            <AppText style={styles.title}>{title}</AppText>
+            <AppText style={styles.subTile}>{subTitle}</AppText>
+          </View>
+        </View>
+      </TouchableHighlight>
+    </Swipeable>
   );
 }
 const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "row",
-    paddingHorizontal: 20,
+    padding: 15,
   },
   displayPicture: {
     height: 70,

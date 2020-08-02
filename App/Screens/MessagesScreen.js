@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, FlatList } from "react-native";
 import ListItem from "../Components/ListItem";
 import Screen from "../Components/Screen";
 import Seperator from "../Components/Seperator";
 import RightSwipeItem from "../Components/RightSwipeItem";
-const messages = [
+
+const initialMessages = [
   {
     id: 1,
     title: "Anurag Gharat",
@@ -26,6 +27,13 @@ const messages = [
 ];
 
 export default function MessagesScreen() {
+  const [messages, setMessages] = useState(initialMessages);
+  const [refresh, setRefresh] = useState(false);
+
+  const handleDelete = (item) => {
+    setMessages(messages.filter((m) => m.id !== item.id));
+  };
+
   return (
     <Screen>
       <FlatList
@@ -36,10 +44,25 @@ export default function MessagesScreen() {
             title={item.title}
             subTitle={item.message}
             image={item.image}
-            renderRightActions={RightSwipeItem}
+            renderRightActions={() => (
+              <RightSwipeItem
+                onPress={() => handleDelete(item)}
+              ></RightSwipeItem>
+            )}
           />
         )}
         ItemSeparatorComponent={Seperator}
+        refreshing={refresh}
+        onRefresh={() => {
+          setMessages([
+            {
+              id: 3,
+              title: "Aravind Gharat",
+              message: "hey Anurag!!",
+              image: require("../assets/anurag.jpg"),
+            },
+          ]);
+        }}
       ></FlatList>
     </Screen>
   );

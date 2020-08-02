@@ -7,4 +7,5 @@ export default {
   secondaryLight: "#ff7979",
   black: "#111",
   white: "#fff",
+  offwhite: "#f8f4f4",
 };

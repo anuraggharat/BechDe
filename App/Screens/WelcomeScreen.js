@@ -1,22 +1,34 @@
 import React from "react";
 import { View, Text, ImageBackground, StyleSheet, Image } from "react-native";
+import AppText from "../Components/AppText";
+import AppButton from "../Components/AppButton";
 
 export default function WelcomeScreen() {
   return (
     <ImageBackground
       source={require("../assets/welcome.jpg")}
       style={styles.imageBackground}
+      blurRadius={3}
     >
       <View style={styles.logoContainer}>
         <Image
-          height="100"
-          width="100"
+          style={styles.logo}
           source={require("../assets/logo.png")}
         ></Image>
-        <Text>Bech De!!!</Text>
+        <Text style={styles.logoText}>Bech De!!!</Text>
       </View>
-      <View style={styles.registerbutton}></View>
-      <View style={styles.loginbutton}></View>
+      <View style={styles.buttonContainer}>
+        <AppButton
+          text="Login"
+          onPress={() => alert("Pressed")}
+          propsColor="primary"
+        />
+        <AppButton
+          text="Register"
+          onPress={() => alert("Pressed")}
+          propsColor="secondary"
+        />
+      </View>
     </ImageBackground>
   );
 }
@@ -29,17 +41,19 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     position: "absolute",
-    top: 50,
+    top: 200,
     alignSelf: "center",
   },
-  registerbutton: {
-    height: 70,
-    width: "100%",
-    backgroundColor: "red",
+  logo: {
+    height: 100,
+    width: 100,
   },
-  loginbutton: {
-    height: 70,
+  logoText: {
+    color: "white",
+    fontSize: 30,
+  },
+  buttonContainer: {
     width: "100%",
-    backgroundColor: "orange",
+    padding: 20,
   },
 });

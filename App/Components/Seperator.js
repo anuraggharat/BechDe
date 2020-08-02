@@ -7,8 +7,8 @@ export default function Seperator() {
 }
 const styles = StyleSheet.create({
   seprator: {
-    backgroundColor: colors.offwhite,
-    height: 2,
+    backgroundColor: colors.black,
+    height: 1,
     width: "100%",
   },
 });

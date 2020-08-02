@@ -16,6 +16,7 @@ export default function ListItem({
   image,
   onPress,
   renderRightActions,
+  IconComponent,
 }) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
@@ -24,10 +25,13 @@ export default function ListItem({
         onPress={() => alert("Pressed")}
       >
         <View style={styles.container}>
-          <Image source={image} style={styles.displayPicture}></Image>
+          {IconComponent}
+          {image && (
+            <Image source={image} style={styles.displayPicture}></Image>
+          )}
           <View style={styles.details}>
             <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.subTile}>{subTitle}</AppText>
+            {subTitle && <AppText style={styles.subTile}>{subTitle}</AppText>}
           </View>
         </View>
       </TouchableHighlight>
@@ -39,6 +43,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     padding: 15,
+    elevation: 10,
   },
   displayPicture: {
     height: 70,
@@ -47,6 +52,7 @@ const styles = StyleSheet.create({
   },
   details: {
     paddingHorizontal: 20,
+    justifyContent: "center",
   },
   title: {
     color: colors.black,

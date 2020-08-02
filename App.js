@@ -8,10 +8,10 @@ import ItemScreen from "./App/Screens/ItemScreen";
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <ViewImageScreen></ViewImageScreen> */}
+      <ViewImageScreen></ViewImageScreen>
       {/* <WelcomeScreen></WelcomeScreen> */}
       {/* <ListingsScreen /> */}
-      <ItemScreen />
+      {/* <ItemScreen /> */}
     </View>
   );
 }

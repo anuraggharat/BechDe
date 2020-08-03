@@ -10,6 +10,7 @@ import Screen from "./App/Components/Screen";
 import AppInput from "./App/Components/AppInput";
 import colors from "./App/config/colors";
 import AppPicker from "./App/Components/AppPicker";
+import LoginScreen from "./App/Screens/LoginScreen";
 
 const categories = [
   {
@@ -33,16 +34,7 @@ export default function App() {
     <View style={styles.container}>
       {/* <MessagesScreen /> */}
       {/* <AccountScreen /> */}
-      <Screen>
-        <AppInput iconName="email" placeholder="Email" />
-        <AppPicker
-          onSelectItem={(item) => setCateory(item.name)}
-          selectedCategory={category}
-          iconName="apps"
-          placeholder="Category"
-          items={categories}
-        />
-      </Screen>
+      <LoginScreen />
       {/* <ViewImageScreen></ViewImageScreen> */}
       {/* <WelcomeScreen></WelcomeScreen> */}
       {/* <ListingsScreen /> */}

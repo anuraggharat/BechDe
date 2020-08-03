@@ -6,12 +6,18 @@ import ListingsScreen from "./App/Screens/ListingsScreen";
 import ItemScreen from "./App/Screens/ItemScreen";
 import MessagesScreen from "./App/Screens/MessagesScreen";
 import AccountScreen from "./App/Screens/AccountScreen";
+import Screen from "./App/Components/Screen";
+import AppInput from "./App/Components/AppInput";
+import colors from "./App/config/colors";
 
 export default function App() {
   return (
     <View style={styles.container}>
       {/* <MessagesScreen /> */}
-      <AccountScreen />
+      {/* <AccountScreen /> */}
+      <Screen>
+        <AppInput iconName="email" placeholder="Email" />
+      </Screen>
       {/* <ViewImageScreen></ViewImageScreen> */}
       {/* <WelcomeScreen></WelcomeScreen> */}
       {/* <ListingsScreen /> */}
@@ -23,5 +29,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
+    padding: 20,
+    backgroundColor: colors.offwhite,
   },
 });

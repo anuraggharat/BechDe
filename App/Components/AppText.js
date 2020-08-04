@@ -7,7 +7,7 @@ export default function AppText({ children, style }) {
 
 const styles = StyleSheet.create({
   text: {
-    color: "white",
+    color: "#111",
     ...Platform.select({
       ios: {
         fontSize: 20,

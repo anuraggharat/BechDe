@@ -56,10 +56,10 @@ export default function AppPicker({
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
               <PickerItem
-                label={item.name}
+                label={item.label}
                 onPress={() => {
                   setModal(false);
-                  onSelectItem(item);
+                  onSelectItem(item.label);
                 }}
               ></PickerItem>
             )}

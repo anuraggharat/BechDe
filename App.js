@@ -11,6 +11,7 @@ import AppInput from "./App/Components/AppInput";
 import colors from "./App/config/colors";
 import AppPicker from "./App/Components/AppPicker";
 import LoginScreen from "./App/Screens/LoginScreen";
+import ListingsEditScreen from "./App/Screens/ListingsEditScreen";
 
 const categories = [
   {
@@ -34,7 +35,8 @@ export default function App() {
     <View style={styles.container}>
       {/* <MessagesScreen /> */}
       {/* <AccountScreen /> */}
-      <LoginScreen />
+      {/* <LoginScreen /> */}
+      <ListingsEditScreen />
       {/* <ViewImageScreen></ViewImageScreen> */}
       {/* <WelcomeScreen></WelcomeScreen> */}
       {/* <ListingsScreen /> */}

@@ -1,10 +1,11 @@
 import React from "react";
 import * as Yup from "yup";
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, Button } from "react-native";
 import Screen from "../Components/Screen";
 import { AppForm, AppFormField, SubmitButton } from "../Components/form";
 import AppFormPicker from "../Components/form/AppFormPicker";
 import CategoryPickerItem from "../Components/CategoryPickerItem";
+import ImageInput from "../Components/ImageInput";
 
 const validationScheme = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -77,9 +78,11 @@ const initialValues = {
   category: null,
 };
 
-export default function ListingsEditScreen() {
+export default function ListingsEditScreen({ imgUri, selectImage }) {
   return (
-    <Screen>
+    <Screen style={styles.container}>
+      <Button title="select image" onPress={selectImage}></Button>
+      <ImageInput imgUri={imgUri} />
       <AppForm
         initialValues={initialValues}
         onSubmit={(values) => console.log(values)}
@@ -109,6 +112,9 @@ export default function ListingsEditScreen() {
   );
 }
 const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+  },
   logo: {
     width: 80,
     height: 80,

@@ -9,6 +9,7 @@ import {
 import AppText from "./AppText";
 import colors from "../config/colors";
 import Swipeable from "react-native-gesture-handler/Swipeable";
+import Icon from "./Icon";
 
 export default function ListItem({
   title,
@@ -33,6 +34,7 @@ export default function ListItem({
             <AppText style={styles.title}>{title}</AppText>
             {subTitle && <AppText style={styles.subTile}>{subTitle}</AppText>}
           </View>
+          <Icon name="chevron-right" />
         </View>
       </TouchableHighlight>
     </Swipeable>
@@ -44,6 +46,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 15,
     elevation: 10,
+    alignItems: "center",
   },
   displayPicture: {
     height: 70,
@@ -53,6 +56,7 @@ const styles = StyleSheet.create({
   details: {
     paddingHorizontal: 20,
     justifyContent: "center",
+    flex: 1,
   },
   title: {
     color: colors.black,

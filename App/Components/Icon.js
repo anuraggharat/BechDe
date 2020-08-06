@@ -14,7 +14,7 @@ export default function Icon({ name, bgcolor, width = 50, height = 50 }) {
         alignItems: "center",
       }}
     >
-      <MaterialCommunityIcons name={name} color="#fff" size={width / 2} />
+      <MaterialCommunityIcons name={name} color="#111" size={width / 2} />
     </View>
   );
 }

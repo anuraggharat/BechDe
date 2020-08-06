@@ -18,7 +18,7 @@ export default function WelcomeScreen({ navigation }) {
         <Text style={styles.logoText}>Bech De!!!</Text>
       </View>
       <View style={styles.buttonContainer}>
-        {/* <AppButton
+        <AppButton
           text="Login"
           onPress={() => navigation.navigate("Login")}
           propsColor="primary"
@@ -27,7 +27,7 @@ export default function WelcomeScreen({ navigation }) {
           text="Register"
           onPress={() => navigation.navigate("Register")}
           propsColor="secondary"
-        /> */}
+        />
       </View>
     </ImageBackground>
   );

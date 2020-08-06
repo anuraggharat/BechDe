@@ -6,7 +6,7 @@ import { AppForm, AppFormField, SubmitButton } from "../Components/form";
 import AppFormPicker from "../Components/form/AppFormPicker";
 import CategoryPickerItem from "../Components/CategoryPickerItem";
 import ImageInput from "../Components/ImageInput";
-import useLocation from "../hooks/useLocation";
+// import useLocation from "../hooks/useLocation";
 import AppFormImagePicker from "../Components/form/AppFormImagePicker";
 
 const validationScheme = Yup.object().shape({
@@ -83,7 +83,7 @@ const initialValues = {
 };
 
 export default function ListingsEditScreen({ imgUri, selectImage }) {
-  const location = useLocation();
+  // const location = useLocation();
 
   return (
     <Screen style={styles.container}>

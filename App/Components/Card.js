@@ -1,44 +1,53 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import AppText from "./AppText";
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableWithoutFeedback,
+} from "react-native";
+
+import Text from "./Text";
 import colors from "../config/colors";
 
-export default function Card({ image, title, subTitle, onPress }) {
+function Card({ title, subTitle, image, onPress }) {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
-        <Image source={image} style={styles.image} />
-        <View style={styles.cardBody}>
-          <AppText style={styles.title}>{title}</AppText>
-          <AppText style={styles.subTitle}>{subTitle}</AppText>
+        <Image style={styles.image} source={image} />
+        <View style={styles.detailsContainer}>
+          <Text style={styles.title} numberOfLines={1}>
+            {title}
+          </Text>
+          <Text style={styles.subTitle} numberOfLines={2}>
+            {subTitle}
+          </Text>
         </View>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 }
+
 const styles = StyleSheet.create({
   card: {
-    width: "100%",
-    borderRadius: 20,
-    overflow: "hidden",
-    backgroundColor: colors.offwhite,
+    borderRadius: 15,
+    backgroundColor: colors.white,
     marginBottom: 20,
+    overflow: "hidden",
   },
-  cardBody: {
+  detailsContainer: {
     padding: 20,
   },
-  title: {
-    fontSize: 20,
-    color: colors.black,
-    fontWeight: "800",
+  image: {
+    width: "100%",
+    height: 200,
   },
   subTitle: {
     color: colors.secondary,
-    marginTop: 10,
+    fontWeight: "bold",
   },
-  image: {
-    height: 200,
-    width: "100%",
-    overflow: "hidden",
+  title: {
+    marginBottom: 7,
   },
 });
+
+export default Card;

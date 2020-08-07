@@ -1,54 +1,60 @@
 import React from "react";
+import { StyleSheet, Image } from "react-native";
 import * as Yup from "yup";
-import { View, StyleSheet, Image } from "react-native";
-import Screen from "../Components/Screen";
-import { AppForm, AppFormField, SubmitButton } from "../Components/form";
 
-const validationScheme = Yup.object().shape({
+import Screen from "../components/Screen";
+import { Form, FormField, SubmitButton } from "../components/forms";
+
+const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().min(6).label("Password"),
+  password: Yup.string().required().min(4).label("Password"),
 });
 
-export default function LoginScreen() {
+function LoginScreen(props) {
   return (
-    <Screen>
-      <Image source={require("../assets/logo.png")} style={styles.logo} />
-      <AppForm
+    <Screen style={styles.container}>
+      <Image style={styles.logo} source={require("../assets/logo-red.png")} />
+
+      <Form
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
-        validationScheme={validationScheme}
+        validationSchema={validationSchema}
       >
-        <View>
-          <AppFormField
-            name="email"
-            iconName="email"
-            autoCapitalize="none"
-            placeholder="Email Address"
-            autoCorrect={false}
-            keyboardType="email-address"
-            textContentType="emailAddress"
-          />
-
-          <AppFormField
-            name="password"
-            iconName="lock"
-            autoCapitalize="none"
-            placeholder="Password"
-            autoCorrect={false}
-            textContentType="password"
-            secureTextEntry={true}
-          />
-          <SubmitButton />
-        </View>
-      </AppForm>
+        <FormField
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="email"
+          keyboardType="email-address"
+          name="email"
+          placeholder="Email"
+          textContentType="emailAddress"
+        />
+        <FormField
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="lock"
+          name="password"
+          placeholder="Password"
+          secureTextEntry
+          textContentType="password"
+        />
+        <SubmitButton title="Login" />
+      </Form>
     </Screen>
   );
 }
+
 const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+  },
   logo: {
     width: 80,
     height: 80,
     alignSelf: "center",
-    marginVertical: 50,
+    marginTop: 50,
+    marginBottom: 20,
   },
 });
+
+export default LoginScreen;

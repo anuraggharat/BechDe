@@ -1,12 +1,10 @@
-import { Colors } from "react-native/Libraries/NewAppScreen";
-
 export default {
-  primary: "#f0932b",
-  primaryLight: "#ffbe76",
-  secondary: "#eb4d4b",
-  secondaryLight: "#ff7979",
-  black: "#111",
+  primary: "#fc5c65",
+  secondary: "#4ecdc4",
+  black: "#000",
   white: "#fff",
-  offwhite: "#f8f4f4",
-  grey: "#636e72",
+  medium: "#6e6969",
+  light: "#f8f4f4",
+  dark: "#0c0c0c",
+  danger: "#ff5252",
 };

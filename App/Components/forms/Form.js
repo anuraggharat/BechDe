@@ -1,20 +1,16 @@
 import React from "react";
 import { Formik } from "formik";
-import * as Yup from "yup";
 
-export default function AppForm({
-  children,
-  initialValues,
-  onSubmit,
-  validationScheme,
-}) {
+function AppForm({ initialValues, onSubmit, validationSchema, children }) {
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={onSubmit}
-      validationSchema={validationScheme}
+      validationSchema={validationSchema}
     >
       {() => <>{children}</>}
     </Formik>
   );
 }
+
+export default AppForm;

@@ -1,32 +1,29 @@
 import React from "react";
-import { View, Text, ImageBackground, StyleSheet, Image } from "react-native";
-import AppText from "../Components/AppText";
-import AppButton from "../Components/AppButton";
+import { ImageBackground, StyleSheet, View, Image, Text } from "react-native";
 
-export default function WelcomeScreen({ navigation }) {
+import Button from "../components/Button";
+import routes from "../navigation/routes";
+
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
-      source={require("../assets/welcome.jpg")}
-      style={styles.imageBackground}
-      blurRadius={3}
+      blurRadius={10}
+      style={styles.background}
+      source={require("../assets/background.jpg")}
     >
       <View style={styles.logoContainer}>
-        <Image
-          style={styles.logo}
-          source={require("../assets/logo.png")}
-        ></Image>
-        <Text style={styles.logoText}>Bech De!!!</Text>
+        <Image style={styles.logo} source={require("../assets/logo-red.png")} />
+        <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
-      <View style={styles.buttonContainer}>
-        <AppButton
-          text="Login"
-          onPress={() => navigation.navigate("Login")}
-          propsColor="primary"
+      <View style={styles.buttonsContainer}>
+        <Button
+          title="Login"
+          onPress={() => navigation.navigate(routes.LOGIN)}
         />
-        <AppButton
-          text="Register"
-          onPress={() => navigation.navigate("Register")}
-          propsColor="secondary"
+        <Button
+          title="Register"
+          color="secondary"
+          onPress={() => navigation.navigate(routes.REGISTER)}
         />
       </View>
     </ImageBackground>
@@ -34,26 +31,29 @@ export default function WelcomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  imageBackground: {
+  background: {
     flex: 1,
-    display: "flex",
     justifyContent: "flex-end",
+    alignItems: "center",
+  },
+  buttonsContainer: {
+    padding: 20,
+    width: "100%",
+  },
+  logo: {
+    width: 100,
+    height: 100,
   },
   logoContainer: {
     position: "absolute",
-    top: 200,
-    alignSelf: "center",
+    top: 70,
+    alignItems: "center",
   },
-  logo: {
-    height: 100,
-    width: 100,
-  },
-  logoText: {
-    color: "white",
-    fontSize: 30,
-  },
-  buttonContainer: {
-    width: "100%",
-    padding: 20,
+  tagline: {
+    fontSize: 25,
+    fontWeight: "600",
+    paddingVertical: 20,
   },
 });
+
+export default WelcomeScreen;

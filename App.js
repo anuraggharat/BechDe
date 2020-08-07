@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
+import { gestureHandlerRootHOC } from "react-native-gesture-handler";
 
 import WelcomeScreen from "./App/Screens/WelcomeScreen";
 import ViewImageScreen from "./App/Screens/ViewImageScreen";
@@ -18,23 +19,13 @@ import colors from "./App/config/colors";
 import ImageInputList from "./App/Components/ImageInputList";
 import AuthNavigator from "./App/navigation/AuthNavigator";
 import { NavigationContainer } from "@react-navigation/native";
+import navigationTheme from "./App/navigation/navigationTheme";
+import AppNavigator from "./App/navigation/AppNavigator";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <AuthNavigator />
+    <NavigationContainer theme={navigationTheme}>
+      <AppNavigator />
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: colors.offwhite,
-  },
-  img: {
-    height: 100,
-    width: 100,
-  },
-});

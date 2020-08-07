@@ -1,17 +1,19 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import AppText from "./AppText";
 import colors from "../config/colors";
 
-export default function Card({ image, title, subTitle }) {
+export default function Card({ image, title, subTitle, onPress }) {
   return (
-    <View style={styles.card}>
-      <Image source={image} style={styles.image} />
-      <View style={styles.cardBody}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.card}>
+        <Image source={image} style={styles.image} />
+        <View style={styles.cardBody}>
+          <AppText style={styles.title}>{title}</AppText>
+          <AppText style={styles.subTitle}>{subTitle}</AppText>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 const styles = StyleSheet.create({
@@ -19,7 +21,7 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 20,
     overflow: "hidden",
-    backgroundColor: colors.white,
+    backgroundColor: colors.offwhite,
     marginBottom: 20,
   },
   cardBody: {

@@ -13,7 +13,11 @@ export default function ItemScreen() {
         <AppText style={styles.subTitle}>3000/-</AppText>
       </View>
       <View style={styles.info}>
-        <ListItem />
+        <ListItem
+          title="Anurag Gharat"
+          subTitle="anuraggharat55@gmail.com"
+          image={require("../assets/anurag.jpg")}
+        />
       </View>
     </View>
   );
